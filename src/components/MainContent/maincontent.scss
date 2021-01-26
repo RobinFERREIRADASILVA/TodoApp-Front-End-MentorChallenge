@@ -1,0 +1,17 @@
+@use 'src/styles/vars';
+
+.mainContent-container {
+  width: 100%;
+  position: absolute;
+  top: 110px;
+
+  .mainContent {
+  width: vars.$mainWidth;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  }
+
+}
+

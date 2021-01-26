@@ -1,0 +1,59 @@
+@use 'src/styles/vars';
+  .task-container {
+    div:first-of-type{
+      border-radius: vars.$borderRadius vars.$borderRadius 0 0;
+    }
+    box-shadow: vars.$boxShadow;
+    background-color: transparent;
+    
+    
+    .task {
+      font-size: 0.8em;
+      background-color: vars.$veryLightGray;
+      color: #000000;
+      padding: 1.3em 0;
+      display: grid;
+      grid-template-columns: 15% 75% 5%;
+      align-items: center;
+      margin: 0;
+      border-top: 1px solid vars.$lightGrayishBlue;
+    
+    
+      .task-checkbox{
+        margin-left: 23px;
+        height: 23px;
+        width: 23px;
+        border-radius: 100%;
+        color: vars.$veryLightGray;
+        border: 1px solid vars.$check-background;
+        background-color: transparent;
+        cursor: pointer;
+        
+        .checked {
+          padding-left: 4px;
+          padding-top: 5px;
+          font-size: 0.9em;
+        }
+
+      }
+      .close-icon {
+        cursor: pointer;
+      }
+      .task-content {
+        padding: 0 1em;
+      }
+    }
+
+    .task-complete {
+      text-decoration: line-through;
+      opacity: 0.9;
+      color: vars.$darkGrayishBlue;
+      
+
+      .task-checkbox {
+        background: linear-gradient(0.35turn, #57ddff, #c058f3);
+      }
+    
+    }
+
+    }

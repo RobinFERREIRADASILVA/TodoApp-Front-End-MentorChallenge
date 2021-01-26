@@ -1,0 +1,27 @@
+@use 'src/styles/vars';
+
+.filters-container {
+  color: vars.$darkGrayishBlue;
+  background-color: vars.$veryLightGray;
+  box-shadow: vars.$boxShadow;
+  border-radius: vars.$borderRadius;
+  
+  .filters-list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em 2.5em;
+  }
+  .filters-item {
+    font-size: 0.9em;
+    cursor: pointer;
+
+    &:hover {
+      color: vars.$veryDarkGrayishBlue;
+    }
+  }
+  .filter-on {
+    color: vars.$mainColor;
+  }
+
+  
+}

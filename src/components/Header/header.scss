@@ -1,0 +1,31 @@
+@use 'src/styles/vars';
+
+.header {
+  height: 30vh;
+  background-image: url('../../../bg-mobile-light.jpg');
+
+  .header-title-container{
+    width: vars.$mainWidth;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    
+
+    .header-title{
+      font-size: 1.3em;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      color: vars.$veryLightGray;
+      font-weight: 800;
+      
+      
+    }
+    .header-moon  {
+      display: inline-block;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  color: vars.$darkGrayishBlue;
+  background-color: vars.$veryLightGray;
+  box-shadow: 1px 8px 13px 0 #484b6a;;
+  border-radius:  0 0 vars.$borderRadius vars.$borderRadius;
+  padding: 1.3em 1.5em;
+  font-size: 0.8em;
+  margin-bottom: vars.$marginBottomContent;
+  border-top: 1px solid vars.$lightGrayishBlue;
+
+  .counter-clear {
+    cursor: pointer;
+    &:hover {
+      color: vars.$veryDarkGrayishBlue;
+    }
+  }
+}
