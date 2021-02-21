@@ -1,8 +1,8 @@
 @use 'src/styles/vars';
 
 .header {
-  height: 30vh;
-  background-image: url('../../../bg-mobile-light.jpg');
+  height: 24vh;
+  background-size: cover;
 
   .header-title-container{
     width: vars.$mainWidth;
@@ -28,4 +28,5 @@
       margin-bottom: 10px;
     }
   }
+
 }

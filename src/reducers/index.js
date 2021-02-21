@@ -1,4 +1,4 @@
-import { SET_TASK, ADD_TASK, SET_TASK_COMPLETE, DELETE_TASK, SET_COUNT, HANDLE_FILTERS } from 'src/actions';
+import { SET_TASK, ADD_TASK, SET_TASK_COMPLETE, DELETE_TASK, SET_COUNT, HANDLE_FILTERS, HANDLE_WINDOW_WIDTH } from 'src/actions';
 
 // Import in local our filters 
 import filters from 'src/data/filters';
@@ -11,6 +11,7 @@ const initialState = {
   allFilters: filters,
   filteredList: tasks,
   count: 0,
+  largeur: window.innerWidth,
 };
 
 function todoReducer(state = initialState, action = {}) {
@@ -94,6 +95,11 @@ function todoReducer(state = initialState, action = {}) {
         allFilters: newFilters,
       };
     }
+    case HANDLE_WINDOW_WIDTH:
+      return {
+        ...state,
+        largeur: action.width,
+      };
     default:
       return state;
   }

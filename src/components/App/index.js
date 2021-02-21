@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import MainContent from 'src/containers/MainContent';
 
 // == Composant
