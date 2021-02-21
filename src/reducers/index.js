@@ -22,7 +22,8 @@ function todoReducer(state = initialState, action = {}) {
         newTask: action.newTask,
       };
     case ADD_TASK: {
-      const nextId = Math.max(...state.allTask) + 1;
+      const ids = state.allTask.map((task) => task.id);
+      const nextId = Math.max(...ids) + 1;
       const testTask = {
         id: nextId,
         label: state.newTask,
@@ -33,6 +34,7 @@ function todoReducer(state = initialState, action = {}) {
         ...state,
         allTask: newList,
         filteredList: newList,
+        newTask: '',
       };
     }
     case SET_TASK_COMPLETE: {
