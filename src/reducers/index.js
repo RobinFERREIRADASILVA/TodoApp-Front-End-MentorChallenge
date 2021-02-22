@@ -1,15 +1,14 @@
-import { SET_TASK, ADD_TASK, SET_TASK_COMPLETE, DELETE_TASK, SET_COUNT, HANDLE_FILTERS, HANDLE_WINDOW_WIDTH } from 'src/actions';
+import { SET_TASK, ADD_TASK, SET_TASK_COMPLETE, DELETE_TASK, SET_COUNT, HANDLE_FILTERS, HANDLE_WINDOW_WIDTH, SAVE_TASKS } from 'src/actions';
 
-// Import in local our filters 
+// Import in local our filters
 import filters from 'src/data/filters';
-import tasks from 'src/data/tasks';
 
 const initialState = {
   // ici l'état initial
-  allTask: tasks,
+  allTask: [],
   newTask: '',
   allFilters: filters,
-  filteredList: tasks,
+  filteredList: [],
   count: 0,
   largeur: window.innerWidth,
 };
@@ -20,6 +19,12 @@ function todoReducer(state = initialState, action = {}) {
       return {
         ...state,
         newTask: action.newTask,
+      };
+    case SAVE_TASKS:
+      return {
+        ...state,
+        allTask: action.tasks,
+        filteredList: action.tasks,
       };
     case ADD_TASK: {
       const ids = state.allTask.map((task) => task.id);

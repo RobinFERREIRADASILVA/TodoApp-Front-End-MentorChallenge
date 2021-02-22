@@ -1,10 +1,16 @@
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import tasks from 'src/middleware/tasks';
 import reducer from 'src/reducers';
 
+const enhancers = composeWithDevTools(
+  applyMiddleware(
+    tasks,
+  ),
+);
 const store = createStore(
   reducer,
-  devToolsEnhancer(),
+  enhancers,
 );
 
 export default store;

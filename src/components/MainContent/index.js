@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './maincontent.scss';
@@ -10,7 +10,11 @@ import Counter from 'src/containers/Counter';
 
 const MainContent = ({
   filteredList,
+  fetchTasks,
 }) => {
+  useEffect(() => {
+    fetchTasks();
+  }, []);
   const orderByTodoTasks = filteredList.sort((a, b) => Number(a.done) - Number(b.done));
 
   return (
@@ -34,6 +38,7 @@ const MainContent = ({
 
 MainContent.propTypes = {
   filteredList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchTasks: PropTypes.func.isRequired,
 };
 
 export default MainContent;
