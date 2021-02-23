@@ -44,7 +44,7 @@ function todoReducer(state = initialState, action = {}) {
     }
     case SET_TASK_COMPLETE: {
       const newList = state.allTask.map((task) => {
-        if (task.id === action.id) {
+        if (task._id === action.id) {
           const taskCopy = { ...task, done: !action.done };
           return taskCopy;
         }
@@ -57,7 +57,7 @@ function todoReducer(state = initialState, action = {}) {
       };
     }
     case DELETE_TASK: {
-      const listWithDelete = state.allTask.filter((task) => task.id !== action.id);
+      const listWithDelete = state.allTask.filter((task) => task._id !== action.id);
       return {
         ...state,
         allTask: listWithDelete,

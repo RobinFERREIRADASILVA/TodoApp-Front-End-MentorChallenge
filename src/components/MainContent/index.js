@@ -24,7 +24,7 @@ const MainContent = ({
         <div className="task-container">
           {orderByTodoTasks.map((task) => (
             <Task
-              key={task.id}
+              key={task._id}
               {...task}
             />
           ))}

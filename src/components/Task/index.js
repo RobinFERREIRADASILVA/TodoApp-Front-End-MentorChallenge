@@ -9,7 +9,7 @@ const Task = ({
   label,
   done,
   taskComplete,
-  id,
+  _id,
   deleteTask }) => {
   const [close, setClose] = useState(false);
 
@@ -22,17 +22,17 @@ const Task = ({
 
   return (
     <div className={classNames('task', { 'task-complete': done })} onMouseOver={handleCloseIcon} onMouseLeave={handleClearClose}>
-      <span className="task-checkbox" onClick={() => taskComplete(id, done)}> {done ? <i className="fas fa-check checked" ></i>
+      <span className="task-checkbox" onClick={() => taskComplete(_id, done)}> {done ? <i className="fas fa-check checked" ></i>
         : ''}
       </span>
       <p className="task-content">{ label }</p>
-      {close && <i className="fas fa-times close-icon" onClick={() => deleteTask(id)} />}
+      {close && <i className="fas fa-times close-icon" onClick={() => deleteTask(_id)} />}
     </div>
 );
 }
 
 Task.propTypes = {
-  id: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,
   taskComplete: PropTypes.func.isRequired,
