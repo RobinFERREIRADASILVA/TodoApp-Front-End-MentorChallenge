@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const Task = require('./models/task');
+const taskRoutes = require('./routes/task');
+const userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb+srv://robin:pantyr77220@cluster0.j3tcx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -21,37 +22,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.post('/api/task', (req,res,next) => {
-  const task = new Task({
-    ...req.body,
-  });
-  task.save()
-    .then(() => {
-      res.status(201).json({ message: 'Nouvelle tâche ajoutée en bdd' });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
-
-app.get('/api/tasks', (req,res,next) => {
-  Task.find()
-    .then((tasks) => {
-      res.status(200).json(tasks);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
-
-app.delete('/api/task', (req, res, next) => {
-  Task.deleteOne({_id: req.body._id })
-    .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
-    .catch((error) => res.status(400).json({ error }));
-});
-
-app.use((req,res, next) => {
-  res.json({ message: 'votre requête a bie reçus' });
-});
+app.use('/api', taskRoutes);
+app.use('/api/user', userRoutes);
 
 module.exports = app;
