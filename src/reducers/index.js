@@ -1,4 +1,15 @@
-import { SET_TASK, ADD_TASK, SET_TASK_COMPLETE, DELETE_TASK, SET_COUNT, HANDLE_FILTERS, HANDLE_WINDOW_WIDTH, SAVE_TASKS } from 'src/actions';
+import {
+  SET_TASK,
+  ADD_TASK,
+  SET_TASK_COMPLETE,
+  DELETE_TASK,
+  SET_COUNT,
+  HANDLE_FILTERS,
+  HANDLE_WINDOW_WIDTH,
+  SAVE_TASKS,
+  CHANGE_FIELD,
+  DISPLAY_SIGNUP,
+} from 'src/actions';
 
 // Import in local our filters
 import filters from 'src/data/filters';
@@ -10,6 +21,11 @@ const initialState = {
   allFilters: filters,
   filteredList: [],
   count: 0,
+  isLogged: false,
+  email: '',
+  password: '',
+  secondPassword: '',
+  needSignup: false,
   largeur: window.innerWidth,
 };
 
@@ -106,6 +122,16 @@ function todoReducer(state = initialState, action = {}) {
       return {
         ...state,
         largeur: action.width,
+      };
+    case CHANGE_FIELD:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+    case DISPLAY_SIGNUP:
+      return {
+        ...state,
+        needSignup: true,
       };
     default:
       return state;

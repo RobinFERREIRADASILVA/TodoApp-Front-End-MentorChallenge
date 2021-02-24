@@ -23,7 +23,7 @@ const tasks = (store) => (next) => (action) => {
       next(action);
       break;
     case FETCH_TASKS:
-      axios.get('http://localhost:3000/api/tasks')
+      axios.get('http://localhost:3000/api/task')
         .then((response) => {
           store.dispatch(saveTasks(response.data));
         })

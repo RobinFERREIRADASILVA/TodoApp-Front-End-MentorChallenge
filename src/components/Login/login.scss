@@ -1,0 +1,38 @@
+@use 'src/styles/vars';
+
+.login {
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  color: black;
+  .login-wrapper {
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+    background: #e4e5f1;
+    padding: 2.5em;
+    box-shadow: 0.5em 0.7em 3em black;
+    h2 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+    .login-button {
+      width: 100px;
+      margin: auto;
+      display: block;
+      margin-top: 1.5em;
+      padding: 0.7em;
+      background: none;
+      border-radius: 2px;
+      border: 1px solid black;
+    }
+    .login-signup {
+      width: 205px;
+      margin: auto;
+      display: block;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+  }
+}

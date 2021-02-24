@@ -7,6 +7,8 @@ export const HANDLE_FILTERS = 'HANDLE_FILTERS';
 export const HANDLE_WINDOW_WIDTH = 'HANDLE_WINDOW_WIDTH';
 export const FETCH_TASKS = 'FETCH_TASKS';
 export const SAVE_TASKS = 'SAVE_TASKS';
+export const CHANGE_FIELD = 'CHANGE_FIELD';
+export const DISPLAY_SIGNUP = 'DISPLAY_SIGNUP';
 
 export const setNewTask = (newTask) => ({
   type: SET_TASK,
@@ -49,4 +51,14 @@ export const fetchTasks = () => ({
 export const saveTasks = (tasks) => ({
   type: SAVE_TASKS,
   tasks,
+});
+
+export const changeField = (value, name) => ({
+  type: CHANGE_FIELD,
+  value,
+  name,
+});
+
+export const displaySignup = () => ({
+  type: DISPLAY_SIGNUP,
 });
